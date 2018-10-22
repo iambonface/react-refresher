@@ -3,14 +3,20 @@ import React, { Component } from 'react';
 class Items extends Component {
     render(){
         //console.log(this.props)
-        const { name, age, belt } = this.props;
+        const { items } = this.props;
+        const itemList = items.map(item => {
+            return (
+                <div className="item" key={item.id}>
+                    <div>Name: { item.name }</div>
+                    <div>Age: { item.age }</div>
+                    <div>Belt: { item.belt }</div>
+                </div>
+            )
+        })
         return(
-            <div className="Items">
-                <div>Name: { name }</div>
-                <div>Age: { age }</div>
-                <div>Belt: { belt }</div>
-            </div>
-
+           <div className="item-list">
+                { itemList }
+           </div>
         )
     }
 }
