@@ -20,10 +20,20 @@ class App extends Component {
       items
     })
   }
+
+  deleteItem = (id) => {
+    //console.log(id)
+    let items = this.state.items.filter(item => {
+      return item.id !== id
+    })
+    this.setState({
+      items
+    })
+  }
   render() {
     return (
       <div className="App">
-      <Items items={ this.state.items }/> 
+      <Items items={ this.state.items } deleteItem={ this.deleteItem }/> 
       <AddItem addItem={this.addItem} />     
       </div>
     );
